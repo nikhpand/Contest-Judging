@@ -14,9 +14,9 @@ class ContestsController < ApplicationController
     
     def create 
         @contest = Contest.new(contest_params)
-        render 'new'
         if @contest.save
-            #Success
+            flash[:success] = "Successfull"
+            redirect_to @contest
         else
             render 'new'
         end
