@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+some_contests = [
+    {:name => 'c1', :location => 'reed', :date => '12/09/15'},
+    {:name => 'c2', :location => 'kyle', :date => '12/10/15'}
+]
+
+some_contests.each do |contest|
+    Contest.create!(contest)
+end
