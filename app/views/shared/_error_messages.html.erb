@@ -1,0 +1,10 @@
+<% if @contest.errors.any? %>
+    <div>
+        <h2><%= pluralize(@contest.errors.count, "error") %> prohibited this user from being saved</h2>
+        <ul>
+            <% @contest.errors.full_messages.each do |msg|%>
+                <li> <% msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

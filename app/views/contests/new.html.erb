@@ -1,0 +1,19 @@
+<h1>
+    Add new Contest
+</h1>
+
+<%= form_for(@contest) do |f| %>
+    <%= render 'shared/error_messages' %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <br/>
+        <%= f.label :location%>
+        <%= f.text_field :location%>
+        <br/>
+        <%= f.label :date%>
+        <%= f.datetime_field :date%>
+        <br/>
+        <%= f.submit "Create"%>
+    </div>
+<% end %>
