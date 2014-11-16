@@ -2,18 +2,9 @@
     Edit Contest
 </h1>
 
+<div>
 <%= form_for(@contest) do |f| %>
-    <%= render 'shared/error_messages', :object => f.object%>
-    <div>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <br/>
-        <%= f.label :location%>
-        <%= f.text_field :location%>
-        <br/>
-        <%= f.label :date%>
-        <%= f.datetime_field :date%>
-        <br/>
-        <%= f.submit "Update"%>
-    </div>
+    <%= render 'fields', :f => f %>
+    <%= f.submit "Update"%>
 <% end %>
+</div>
