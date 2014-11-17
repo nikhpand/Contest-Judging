@@ -14,5 +14,20 @@
         <td> <%= link_to 'Destroy', @contest, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>     
 </table>
+
+<h3>Categories</h3>
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+     <tr>
+        <% @contest.categories.each do |category| %>
+        <td><%= category.name %></td>
+       
+        <% end %>   
+    </tr>
+</table>
+<br/>
+<%= link_to 'New Category', new_contest_category_path(@contest,@category) %>
 <br/>
 <%= link_to 'Back to Contests', contests_path %>

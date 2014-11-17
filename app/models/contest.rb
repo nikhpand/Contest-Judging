@@ -7,4 +7,5 @@ class Contest < ActiveRecord::Base
     validates :location, :presence => true
     validates :date, :presence => true
     
+    has_many :categories, :dependent => :destroy
 end
