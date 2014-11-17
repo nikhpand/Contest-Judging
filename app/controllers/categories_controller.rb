@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+    before_filter :authenticate_user!
     before_filter :has_contest
 
     protected

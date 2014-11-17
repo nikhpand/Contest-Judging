@@ -1,4 +1,5 @@
 class ContestsController < ApplicationController
+    before_filter :authenticate_user!
     def index
         @contests = Contest.all
     end
