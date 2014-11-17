@@ -11,5 +11,8 @@
   <li><%= link_to 'Contests', users_path %></li>
 <% end %>
 <% if user_signed_in? && !current_user.try(:admin?) %>
+  <li><%= link_to 'Contests', contests_path %></li>
+<% end %>
+<% if user_signed_in? && !current_user.try(:admin?) %>
   <li><%= link_to 'Projects', users_path %></li>
 <% end %>

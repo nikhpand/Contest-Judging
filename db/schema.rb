@@ -13,6 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20141117042640) do
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.integer  "contest_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["contest_id"], name: "index_categories_on_contest_id"
+
+  create_table "contests", force: true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
