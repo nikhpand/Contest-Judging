@@ -1,0 +1,10 @@
+<h1>
+    Edit Contest
+</h1>
+
+<div>
+<%= form_for(@contest) do |f| %>
+    <%= render 'fields', :f => f %>
+    <%= f.submit "Update"%>
+<% end %>
+</div>

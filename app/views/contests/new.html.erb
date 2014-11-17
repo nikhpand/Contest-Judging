@@ -1,0 +1,9 @@
+<h1>
+    Add new Contest
+</h1>
+<div>
+<%= form_for(@contest) do |f| %>
+    <%= render 'fields', :f => f %>
+    <%= f.submit "Create"%>
+<% end %>
+</div>
