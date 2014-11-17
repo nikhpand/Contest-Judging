@@ -39,6 +39,9 @@ class CategoriesController < ApplicationController
     end
     
     def destroy
+        @category = @contest.categories.find(params[:id])
+        @category.destroy
+        redirect_to contest_path(@contest)
     end
     
     def category_params
