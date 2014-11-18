@@ -4,6 +4,7 @@ class Category < ActiveRecord::Base
     end
     
     belongs_to :contest
+    has_many :projects
     
     validates :name, :presence => true, :length => { :maximum => 50}
     validates :contest_id, :presence =>true
