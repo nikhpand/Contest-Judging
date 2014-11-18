@@ -9,6 +9,9 @@
 # Corrections? Improvements? Create a GitHub issue:
 # http://github.com/RailsApps/rails-composer/issues
 #----------------------------------------------------------------------------
+/.c9/*
+/.c9/
+.c9/
 
 # bundler state
 /.bundle
