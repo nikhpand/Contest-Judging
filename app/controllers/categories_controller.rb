@@ -29,6 +29,10 @@ class CategoriesController < ApplicationController
         @category = @contest.categories.find(params[:id])
     end
     
+    def show
+         @category = @contest.categories.find(params[:id])
+    end
+  
     def update
         @category = @contest.categories.find(params[:id])
         if @category.update_attributes(category_params)

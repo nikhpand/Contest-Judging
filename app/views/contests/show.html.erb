@@ -19,11 +19,14 @@
 <div>
     <% @contest.categories.each do |category| %>
         <%= category.name %>
+        <%= link_to 'Add projects', new_project_path%>
         <%= link_to 'Edit', edit_contest_category_path(@contest, category)%>
         <%= link_to 'Destroy', [@contest, category], :confirm => 'Are you sure?', :method => :delete %></td>
         <br/>
     <% end %>   
 </div>
+<br/>
+<%= link_to 'Add Judges to projects', controller: "judges" %>
 <br/>
 <%= link_to 'New Category', new_contest_category_path(@contest,@category) %>
 <br/>

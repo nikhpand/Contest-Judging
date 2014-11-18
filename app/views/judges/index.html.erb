@@ -1,0 +1,17 @@
+<h1>hello</h1>
+<div>
+    <% @users.each do |us_name| %>
+        <%= us_name.name %>
+        <%= us_name.email %>
+
+        <br/>
+    <% end %>   
+</div>
+
+<div>
+    <% @projects.each do |pj| %>
+        <%= pj.name %>
+
+        <br/>
+    <% end %>   
+</div>

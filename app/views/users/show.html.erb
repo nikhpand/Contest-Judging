@@ -1,3 +1,18 @@
 <h3>User</h3>
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+
+<p>
+<%= form_for @user  do |f| %>
+<% for project in Project.all %>  
+    <div>  
+      <%= check_box_tag "user[project_ids][]", project.id, @user.projects.include?(project) %>  
+      <%= project.name %>  
+    </div>  
+<% end %> 
+<%= f.submit 'Update' %>
+</p>
+<% end %>
+
+
+
