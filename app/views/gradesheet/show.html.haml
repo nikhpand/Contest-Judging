@@ -1,0 +1,31 @@
+%h1 Gradesheet
+
+= form_tag '/gradesheet/' + params[:id], :method => :put do
+
+    %h3
+        Project: 
+        %label{:id => "project"} 
+            = "#{@project}"
+        %br
+        Location:
+        %label{:id => "location"}
+            = "#{@location}"
+        // %br
+        // Judge ID:
+        // %label{:id => "judge_id"}
+        //     = "#{@judge_id}"
+    
+    %table#questions
+        %thead
+            %tr
+                %th Question Type
+                %th Question
+                %th Score
+            %tbody
+                - @questions.each do |q|
+                    %tr
+                        %td= q.question_types.question_type
+                        %td= q.question
+                        %td= select q.id, :score, options_for_select(1.upto(q.maximum_score))
+                        
+    %button#submit Submit Scores

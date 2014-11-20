@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117220025) do
+ActiveRecord::Schema.define(version: 20141119211602) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -41,6 +41,25 @@ ActiveRecord::Schema.define(version: 20141117220025) do
   create_table "projects_users", id: false, force: true do |t|
     t.integer "user_id",    null: false
     t.integer "project_id", null: false
+  end
+
+  create_table "question_types", force: true do |t|
+    t.string  "question_type"
+    t.integer "contest_id"
+  end
+
+  create_table "questions", force: true do |t|
+    t.integer "question_types_id"
+    t.string  "question"
+    t.integer "maximum_score"
+  end
+
+  create_table "scores", force: true do |t|
+    t.integer "round_number"
+    t.integer "project_id"
+    t.integer "questions_id"
+    t.integer "judge_id"
+    t.integer "score"
   end
 
   create_table "users", force: true do |t|
