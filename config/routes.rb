@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :users
     resources :projects
     resources :judges
-    resources :gradesheet
+    resources :gradesheets
 end

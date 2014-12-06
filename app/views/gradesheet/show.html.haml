@@ -28,4 +28,8 @@
                         %td= q.question
                         %td= select q.id, :score, options_for_select(1.upto(q.maximum_score))
                         
+        
+        %textarea{:id => "comment"}
+            = "Enter your comments here"
+                        
     %button#submit Submit Scores
