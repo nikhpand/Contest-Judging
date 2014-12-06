@@ -1,5 +1,6 @@
 class GradesheetController < ApplicationController
     #@global_project_id = nil
+    before_filter :authenticate_user!
     
     def show
         @questions = Questions.all
