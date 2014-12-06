@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :projects
     resources :judges
     resources :gradesheet
+    resources :scores
+    
 end

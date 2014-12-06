@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="Integer">Round Number</Data></Cell>
+        <Cell><Data ss:Type="Integer">Project ID</Data></Cell>
+        <Cell><Data ss:Type="Integer">Judge ID</Data></Cell>
+        <Cell><Data ss:Type="Integer">Questions ID</Data></Cell>
+        <Cell><Data ss:Type="Integer">Score</Data></Cell>
+      </Row>
+    <% @scores.each do |score| %>
+      <Row>
+        <Cell><Data ss:Type="Integer"><%= score.round_number %></Data></Cell>
+        <Cell><Data ss:Type="Integer"><%= score.project_id %></Data></Cell>
+        <Cell><Data ss:Type="Integer"><%= score.judge_id %></Data></Cell>
+        <Cell><Data ss:Type="Integer"><%= score.questions_id %></Data></Cell>
+        <Cell><Data ss:Type="Integer"><%= score.score %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
