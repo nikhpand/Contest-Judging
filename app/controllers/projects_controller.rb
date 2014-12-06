@@ -29,13 +29,16 @@ class ProjectsController < ApplicationController
             render 'new'
         end
   end
-  
-    def project_params
-        params.require(:project).permit(:name, :location)
-    end
-    
+
     def self.get_project_details(id)
         return Project.find(id)
     end
+
+private
+  
+    def project_params
+            params.require(:project).permit!
+    end
+    
     
 end
