@@ -20,8 +20,5 @@ class Scores < ActiveRecord::Base
       end
     end
   end
-   
-   
-   
-   
+
 end

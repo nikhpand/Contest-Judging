@@ -8,17 +8,17 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="Integer">Round Number</Data></Cell>
-        <Cell><Data ss:Type="Integer">Project ID</Data></Cell>
-        <Cell><Data ss:Type="Integer">Judge ID</Data></Cell>
-        <Cell><Data ss:Type="Integer">Questions ID</Data></Cell>
+        <Cell><Data ss:Type="String">Project Name</Data></Cell>
+        <Cell><Data ss:Type="String">Judge Name</Data></Cell>
+        <Cell><Data ss:Type="String">Questions Description</Data></Cell>
         <Cell><Data ss:Type="Integer">Score</Data></Cell>
       </Row>
     <% @scores.each do |score| %>
       <Row>
         <Cell><Data ss:Type="Integer"><%= score.round_number %></Data></Cell>
-        <Cell><Data ss:Type="Integer"><%= score.project_id %></Data></Cell>
-        <Cell><Data ss:Type="Integer"><%= score.judge_id %></Data></Cell>
-        <Cell><Data ss:Type="Integer"><%= score.questions_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= score.project_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= score.user_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= score.question %></Data></Cell>
         <Cell><Data ss:Type="Integer"><%= score.score %></Data></Cell>
       </Row>
     <% end %>
