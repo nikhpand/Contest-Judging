@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @users = User.all
+  #  @users = User.all
+    @users= User.where('id > 1')
   end
 
   def show
