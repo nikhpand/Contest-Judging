@@ -1,11 +1,12 @@
-class CreateScore < ActiveRecord::Migration
+class CreateScores < ActiveRecord::Migration
   def up
     create_table :scores do |t|
       t.integer 'round_number'
       t.integer 'project_id'
-      t.references 'questions'
+      t.references :question
       t.integer 'judge_id'
       t.integer 'score'
+      t.string 'comment'
     end
   end
   

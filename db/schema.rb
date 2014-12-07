@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119211602) do
+ActiveRecord::Schema.define(version: 20141206180546) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20141119211602) do
   end
 
   add_index "categories", ["contest_id"], name: "index_categories_on_contest_id"
+
+  create_table "comments", force: true do |t|
+    t.integer "round_number"
+    t.integer "project_id"
+    t.integer "judge_id"
+    t.string  "comment"
+  end
 
   create_table "contests", force: true do |t|
     t.string   "name"
@@ -49,17 +56,19 @@ ActiveRecord::Schema.define(version: 20141119211602) do
   end
 
   create_table "questions", force: true do |t|
-    t.integer "question_types_id"
+    t.integer "question_type_id"
     t.string  "question"
     t.integer "maximum_score"
+    t.string  "comment"
   end
 
   create_table "scores", force: true do |t|
     t.integer "round_number"
     t.integer "project_id"
-    t.integer "questions_id"
+    t.integer "question_id"
     t.integer "judge_id"
     t.integer "score"
+    t.string  "comment"
   end
 
   create_table "users", force: true do |t|

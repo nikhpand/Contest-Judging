@@ -13,16 +13,16 @@ class Comment < ActiveRecord::Base
    end
    
    def self.exists?(round_number, project_id, judge_id)
-       users = Score.where(round_number: round_number, project_id: project_id, judge_id: judge_id)
-       if users.nil? then
-           return False
+       users = Comment.where(round_number: round_number, project_id: project_id, judge_id: judge_id)
+       if users.count==0 then
+           return false
         else
-            return True
+            return true
        end
    end
    
    def self.update_record(round_number, project_id, judge_id, comment)
-       user = Score.where(round_number: round_number, project_id: project_id, judge_id: judge_id)
+       user = Comment.find_by(round_number: round_number, project_id: project_id, judge_id: judge_id)
        user.comment = comment
        user.save!
    end

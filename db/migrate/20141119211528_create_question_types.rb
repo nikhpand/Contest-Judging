@@ -1,4 +1,4 @@
-class CreateQuestionType < ActiveRecord::Migration
+class CreateQuestionTypes < ActiveRecord::Migration
   def up
     create_table :question_types do |t|
       t.string    'question_type' 
