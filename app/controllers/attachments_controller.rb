@@ -19,7 +19,7 @@ class AttachmentsController < ApplicationController
     return if params[:attachment].blank?
     puts params.inspect
     @attachment = Attachment.new
-    @attachment.uploaded_file = params[:attachment][:attachment]
+    @attachment.uploaded_file(@contest, params)
 
     if @attachment.save
         flash[:success] = "File upload successful"
