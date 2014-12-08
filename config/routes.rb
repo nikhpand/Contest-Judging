@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  #get 'attachments/show'
-
-  #get 'attachments/create'
-
     resources :contests do
         resources :categories
         resources :attachments
         resources :projects
     end
+    post '/contests/:contest_id/categories/:id/attach_project', to: 'categories#attach_project'
     root to: 'visitors#index'
     devise_for :users
     resources :users

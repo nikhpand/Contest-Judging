@@ -3,11 +3,27 @@
 </h1>
 
 <div>
-    <% @projects.each do |project| %>
-        <br/>
-        <%= project.name %><br/>
-        <%= link_to 'Edit', edit_contest_project_path(@contest, project)%><br/>
-        <%= link_to 'Destroy', [@contest, project], :confirm => 'Are you sure?', :method => :delete %></td>
-        <br/>
-    <% end %>   
+    <h3>Assigned Projects</h3>
+    <% if @projects != nil %>
+        <% @projects.each do |project| %>
+            <br/>
+            <%= project.name %><br/>
+            <%= link_to 'Edit', edit_contest_project_path(@contest, project)%><br/>
+            <%= link_to 'Destroy', [@contest, project], :confirm => 'Are you sure?', :method => :delete %></td>
+            <br/>
+        <% end %>   
+    <% else %>
+    <% end %>
+    <% if @projects_unassgined != nil %>
+        <h3>Unassigned Projects</h3>
+       <% form_for url_for(:controller => 'categories', :action => 'attach_project'), :method => 'get' do %>
+            <% @projects_unassgined.each do |project| %>
+                <%= check_box_tag "unassigned[project_ids][]",project.id  %>
+                <%= project.name %>&nbsp;
+                <br />
+            <% end %>   
+        <%= submit_tag 'Assign' %>
+    <% end %>
+     <% else %>
+    <% end %>
 </div>

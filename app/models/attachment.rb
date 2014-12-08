@@ -1,6 +1,5 @@
 class Attachment < ActiveRecord::Base
   def uploaded_file(contest, params)
-    puts "############################################################"
     puts contest.inspect
     incoming_file = params[:attachment][:attachment]
     name =  'test.xls'

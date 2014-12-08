@@ -32,6 +32,8 @@ class CategoriesController < ApplicationController
     def show
          @category = @contest.categories.find(params[:id])
          @projects = @contest.projects.find_by(category_id: @category.id)
+         @projects_unassgined =  @contest.projects.where(category_id: nil)
+         puts @projects_unassgined.inspect
     end
   
     def update
