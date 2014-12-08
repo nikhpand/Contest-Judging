@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :users
     resources :projects
     resources :judges
+    resources :questions
+    resources :question_types
 end

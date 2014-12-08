@@ -1,0 +1,24 @@
+<h1>
+    Listing Questions
+</h1>
+
+<table>
+    <tr>
+        <th>Question</th>
+        <th>Question Type</th>
+        <th>Max Score</th>
+    </tr>
+<% @questions.each do |q| %>
+    <tr>
+        <td> <%= q.question %></td>
+        <td> <%= QuestionType.find(q.question_type_id).question_type %></td>
+        <td> <%= q.maximum_score %></td>
+        <td> <%= link_to 'Show',q %></td>
+        <td> <%= link_to 'Edit', edit_question_path(q)%></td>
+        <td> <%= link_to 'Destroy', q, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>     
+<% end %>
+</table>
+<br/>
+<%= link_to 'New Question', new_question_path %>
+
