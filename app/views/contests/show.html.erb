@@ -22,13 +22,13 @@
     <% @contest.categories.each do |category| %>
         <br/>
         <%= category.name %><br/>
-        <%= link_to 'Add projects', new_project_path%><br/>
         <%= link_to 'Edit', edit_contest_category_path(@contest, category)%><br/>
         <%= link_to 'Destroy', [@contest, category], :confirm => 'Are you sure?', :method => :delete %></td>
         <br/>
     <% end %>   
 </div>
 <br/>
+<%= link_to 'Add projects', new_contest_project_path(@contest) %><br/>
 <br/>
 <%= link_to 'Upload Contest File', new_contest_attachment_path(@contest) %>
 <br/>
