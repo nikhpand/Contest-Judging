@@ -44,6 +44,12 @@ class ProjectsController < ApplicationController
     def self.get_project_details(id)
         return Project.find(id)
     end
+    
+    def destroy
+        @project = @contest.projects.find(params[:id])
+        @project.destroy
+        redirect_to contest_path(@contest)
+    end
 
     private
   

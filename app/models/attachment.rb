@@ -1,5 +1,7 @@
 class Attachment < ActiveRecord::Base
   def uploaded_file(contest, params)
+    puts "############################################################"
+    puts contest.inspect
     incoming_file = params[:attachment][:attachment]
     name =  'test.xls'
     directory = "public/"
@@ -10,10 +12,10 @@ class Attachment < ActiveRecord::Base
     worksheet = workbook.worksheet(0)
     1.upto worksheet.last_row_index do |index|
       row = worksheet.row(index)
-      @project = Project.new
-      @project.id = contest
+      @project = contest.projects.build
       @project.name = row[0]
       @project.location = row[1]
+      @project.save
       puts @project.inspect
     end
   end

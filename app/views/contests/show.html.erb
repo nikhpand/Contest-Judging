@@ -14,31 +14,40 @@
         <td> <%= link_to 'Destroy', @contest, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>     
 </table>
-
-<br/>
 <br/>
 <h3>Categories</h3>
 <div>
     <% @contest.categories.each do |category| %>
         <br/>
-        <%= category.name %><br/>
-        <%= link_to 'Show', contest_category_path(@contest, category)%><br/>
-        <%= link_to 'Edit', edit_contest_category_path(@contest, category)%><br/>
+        <%= category.name %>&nbsp;
+        <%= link_to 'Show', contest_category_path(@contest, category)%>&nbsp;
+        <%= link_to 'Edit', edit_contest_category_path(@contest, category)%>&nbsp;
         <%= link_to 'Destroy', [@contest, category], :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>   
+</div>
+<%= link_to 'New Category', new_contest_category_path(@contest,@category) %>
+<br/>
+<h3>Projects</h3>
+<div>
+    <% @contest.projects.each do |project| %>
         <br/>
+        <%= project.name %>&nbsp;
+        <%= link_to 'Show', contest_project_path(@contest, project)%>&nbsp;
+        <%= link_to 'Edit', edit_contest_project_path(@contest, project)%>&nbsp;
+        <%= link_to 'Destroy', [@contest, project], :confirm => 'Are you sure?', :method => :delete %></td>
     <% end %>   
 </div>
 <br/>
-<%= link_to 'Add projects', new_contest_project_path(@contest) %><br/>
+
+<%= link_to 'Add project', new_contest_project_path(@contest) %><br/>
 <br/>
-<%= link_to 'Upload Contest File', new_contest_attachment_path(@contest) %>
+<%= link_to 'Upload Projects File', new_contest_attachment_path(@contest) %>
 <br/>
 <%= link_to 'Add Judges to projects', controller: "users" %>
 <br/>
-<%= link_to 'Scores', controller: "scores" %>
+<%= link_to 'Download Scores', controller: "scores" %>
 <br/>
-<%= link_to 'New Category', new_contest_category_path(@contest,@category) %>
-<br/>
+
 <%= link_to 'Back to Contests', contests_path %>
 <br/>
 <%= link_to 'Add Question Types', question_types_path %>
