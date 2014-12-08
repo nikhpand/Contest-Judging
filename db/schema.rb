@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208013754) do
+ActiveRecord::Schema.define(version: 20141208063637) do
 
   create_table "attachments", force: true do |t|
     t.string   "filename"
@@ -45,19 +45,13 @@ ActiveRecord::Schema.define(version: 20141208013754) do
     t.datetime "updated_at"
   end
 
-  create_table "datafiles", force: true do |t|
-  end
-
-  create_table "files", force: true do |t|
-  end
-
   create_table "projects", force: true do |t|
     t.string   "name"
     t.string   "location"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "contest_id"
-    t.integer  "category_id"
   end
 
   create_table "projects_users", id: false, force: true do |t|
@@ -71,17 +65,19 @@ ActiveRecord::Schema.define(version: 20141208013754) do
   end
 
   create_table "questions", force: true do |t|
-    t.integer "question_types_id"
+    t.integer "question_type_id"
     t.string  "question"
     t.integer "maximum_score"
+    t.string  "comment"
   end
 
   create_table "scores", force: true do |t|
     t.integer "round_number"
     t.integer "project_id"
-    t.integer "questions_id"
+    t.integer "question_id"
     t.integer "judge_id"
     t.integer "score"
+    t.string  "comment"
   end
 
   create_table "users", force: true do |t|
