@@ -4,16 +4,16 @@
 
 <table>
     <tr>
-        <th>Question</th>
-        <th>Question Type</th>
-        <th>Maximum score</th>
+        <th>Question &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+        <th>Question Type &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+        <th>Maximum score &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
     </tr>
     <tr>
         <td> <%= @question.question %></td>
         <td> <%= QuestionType.find(@question.question_type_id).question_type %></td>
-        <td> <%= @question.maximum_score %></td>
-        <td> <%= link_to 'Edit', edit_question_path(@question)%></td>
-        <td> <%= link_to 'Destroy', @question, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td> <%= @question.maximum_score %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= link_to 'Edit', edit_question_path(@question)%>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= link_to 'Destroy', @question, :confirm => 'Are you sure?', :method => :delete %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
     </tr>     
 </table>
 

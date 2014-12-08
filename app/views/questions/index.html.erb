@@ -4,18 +4,18 @@
 
 <table>
     <tr>
-        <th>Question</th>
-        <th>Question Type</th>
-        <th>Max Score</th>
+        <th>Question &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+        <th>Question Type &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+        <th>Max Score &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
     </tr>
 <% @questions.each do |q| %>
     <tr>
         <td> <%= q.question %></td>
         <td> <%= QuestionType.find(q.question_type_id).question_type %></td>
-        <td> <%= q.maximum_score %></td>
-        <td> <%= link_to 'Show',q %></td>
-        <td> <%= link_to 'Edit', edit_question_path(q)%></td>
-        <td> <%= link_to 'Destroy', q, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td> <%= q.maximum_score %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= link_to 'Show',q %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= link_to 'Edit', edit_question_path(q)%>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= link_to 'Destroy', q, :confirm => 'Are you sure?', :method => :delete %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
     </tr>     
 <% end %>
 </table>
