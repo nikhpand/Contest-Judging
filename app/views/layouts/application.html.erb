@@ -12,9 +12,11 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+    <div class="container theme-showcase" role="main">
+       <div class="jumbotron">
+         <%= render 'layouts/messages' %>
+         <%= yield %>
+        </div>
+    </div>
   </body>
 </html>

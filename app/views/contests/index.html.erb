@@ -7,18 +7,18 @@
         <th>Name </th>
         <th>Location </th>
         <th>Date  </th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 <% @contests.each do |contest| %>
     <tr>
         <td> <%= contest.name %></td>
         <td> <%= contest.location %></td>
         <td> <%= contest.date %></td>
-        <td> <%= link_to 'Show',contest %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-        <td> <%= link_to 'Edit', edit_contest_path(contest)%>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-        <td> <%= link_to 'Destroy', contest, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td> 
+            <%= link_to 'Show',contest %>
+            <%= link_to 'Edit', edit_contest_path(contest)%>
+            <%= link_to 'Destroy', contest, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
     </tr>     
 <% end %>
 </table>
