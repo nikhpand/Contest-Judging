@@ -22,6 +22,7 @@
     <% @contest.categories.each do |category| %>
         <br/>
         <%= category.name %><br/>
+        <%= link_to 'Show', contest_category_path(@contest, category)%><br/>
         <%= link_to 'Edit', edit_contest_category_path(@contest, category)%><br/>
         <%= link_to 'Destroy', [@contest, category], :confirm => 'Are you sure?', :method => :delete %></td>
         <br/>

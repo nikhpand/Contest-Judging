@@ -1,14 +1,13 @@
 <h1>
-    Listing Contests
+    <%= @category.name %>
 </h1>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Date</th>
-    </tr>
-    <tr>
-
-        <td> <%= link_to 'Projects',contest %></td>
-    </tr>     
+<div>
+    <% @projects.each do |project| %>
+        <br/>
+        <%= project.name %><br/>
+        <%= link_to 'Edit', edit_contest_project_path(@contest, project)%><br/>
+        <%= link_to 'Destroy', [@contest, project], :confirm => 'Are you sure?', :method => :delete %></td>
+        <br/>
+    <% end %>   
+</div>

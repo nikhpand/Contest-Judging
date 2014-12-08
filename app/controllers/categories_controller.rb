@@ -31,6 +31,7 @@ class CategoriesController < ApplicationController
     
     def show
          @category = @contest.categories.find(params[:id])
+         @projects = @contest.projects.find_by(category_id: @category.id)
     end
   
     def update
