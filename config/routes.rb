@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  #get 'attachments/show'
+
+  #get 'attachments/create'
+
     resources :contests do
         resources :categories
+        resources :attachments
     end
     root to: 'visitors#index'
     devise_for :users
@@ -9,4 +14,6 @@ Rails.application.routes.draw do
     resources :judges
     resources :questions
     resources :question_types
+    resources :gradesheets
+    resources :scores
 end

@@ -9,10 +9,15 @@ class ProjectsController < ApplicationController
   end
   
   def show
-    @project = Project.find(params[:id])
+    if current_user.admin? then 
+        @project = Project.find(params[:id])
+    end
  #   unless @user == current_user || current_user.admin?
  #     redirect_to :back, :alert => "Access denied."
  #   end
+    if !current_user.admin? then
+       redirect_to :gradesheet
+    end   
   end
   
   def create
@@ -24,9 +29,16 @@ class ProjectsController < ApplicationController
             render 'new'
         end
   end
+
+    def self.get_project_details(id)
+        return Project.find(id)
+    end
+
+private
   
     def project_params
-        params.require(:project).permit(:name, :location)
+            params.require(:project).permit!
     end
+    
     
 end

@@ -1,0 +1,7 @@
+<h1>    Upload file </h1>
+<div>
+<%= form_for @attachment, url: {action: "create"} do |f| %>
+  <%= f.file_field :attachment %>
+   <%= submit_tag "Send Attachment" %>
+<% end %>
+</div>

@@ -1,0 +1,17 @@
+<h1>Scores</h1>
+
+<% @scores.each do |score| %>
+  <%= score.round_number %>
+  <%= score.project_name %>
+  <%= score.user_name %>
+  <%= score.question_name %>
+  <%= score.score %>
+  <%= score.question_comment %>
+  <BR>
+
+<% end %>
+
+<p>
+  Download:
+  <%= link_to "Excel", scores_path(format: "xls") %>
+</p>

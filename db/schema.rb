@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20141207160412) do
+
+
+  create_table "attachments", force: true do |t|
+    t.string   "filename"
+    t.string   "content_type"
+    t.binary   "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -22,12 +32,25 @@ ActiveRecord::Schema.define(version: 20141207160412) do
 
   add_index "categories", ["contest_id"], name: "index_categories_on_contest_id"
 
+  create_table "comments", force: true do |t|
+    t.integer "round_number"
+    t.integer "project_id"
+    t.integer "judge_id"
+    t.string  "comment"
+  end
+
   create_table "contests", force: true do |t|
     t.string   "name"
     t.string   "location"
     t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "datafiles", force: true do |t|
+  end
+
+  create_table "files", force: true do |t|
   end
 
   create_table "projects", force: true do |t|
@@ -44,18 +67,24 @@ ActiveRecord::Schema.define(version: 20141207160412) do
   end
 
   create_table "question_types", force: true do |t|
-    t.string   "question_type"
-    t.integer  "contest_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "question_type"
+    t.integer "contest_id"
   end
 
   create_table "questions", force: true do |t|
-    t.integer  "question_type_id"
-    t.string   "question"
-    t.integer  "maximum_score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "question_type_id"
+    t.string  "question"
+    t.integer "maximum_score"
+    t.string  "comment"
+  end
+
+  create_table "scores", force: true do |t|
+    t.integer "round_number"
+    t.integer "project_id"
+    t.integer "question_id"
+    t.integer "judge_id"
+    t.integer "score"
+    t.string  "comment"
   end
 
   create_table "users", force: true do |t|
