@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     root to: 'visitors#index'
     devise_for :users
     resources :users
+    resources :projects
     resources :judges
     resources :questions
     resources :question_types

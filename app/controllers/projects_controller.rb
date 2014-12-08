@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
  before_filter :authenticate_user!
-  before_filter :has_contest
+  before_filter :has_contest, :only => [:new, :create, :destroy]
 
     protected
     def has_contest
@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     
     public
     def index
-        @projects = @contest.projects
+        @projects = current_user.projects
     end
 
     def new
