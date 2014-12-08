@@ -9,14 +9,23 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    
     <header>
       <%= render 'layouts/navigation' %>
     </header>
+    
     <div class="container theme-showcase" role="main">
        <div class="jumbotron">
          <%= render 'layouts/messages' %>
          <%= yield %>
         </div>
     </div>
+    
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Texas A&M Property</p>
+      </div>
+    </footer>
+    
   </body>
 </html>
