@@ -37,7 +37,7 @@
         </tr>
         <% end %>   
     </table>
-<%= button_to 'New Category', new_contest_category_path(@contest,@category) %>
+<%= link_to 'New Category', new_contest_category_path(@contest,@category) %>
 </div>
 <div>
     <h3>Projects</h3>
@@ -61,7 +61,7 @@
     <%= link_to 'Add project', new_contest_project_path(@contest) %><br/>
 </div>
 <div>
-<%= button_to 'Upload Projects File', new_contest_attachment_path(@contest) %>
+<%= link_to 'Upload Projects File', new_contest_attachment_path(@contest) %>
 <br/>
 <%= link_to 'Add Judges to projects', controller: "users" %>
 <br/>
