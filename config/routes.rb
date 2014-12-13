@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         resources :projects
     end
     post '/contests/:contest_id/categories/:id/attach', to: 'categories#attach', :as => :attach
+    post '/contests/:contest_id/categories/:id/unattach', to: 'categories#unattach', :as => :unattach
     root to: 'visitors#index'
     devise_for :users
     resources :users

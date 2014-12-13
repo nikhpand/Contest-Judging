@@ -46,17 +46,28 @@ class CategoriesController < ApplicationController
     end
     
     def attach
-        puts "-------------------------------------".inspect
         puts params[:unassigned][:project_ids].inspect
         params[:unassigned][:project_ids].each do |id|
             project = @contest.projects.find(id)
             project.category_id = params[:id]
             project.save
-            puts project.inspect
         end
-         @category = @contest.categories.find(params[:id])
-         @projects = @contest.projects.where(category_id: @category.id)
-         @projects_unassgined =  @contest.projects.where(category_id: nil)
+        @category = @contest.categories.find(params[:id])
+        @projects = @contest.projects.where(category_id: @category.id)
+        @projects_unassgined =  @contest.projects.where(category_id: nil)
+        render 'categories/show'
+    end
+    
+    def unattach
+        puts params[:assigned][:project_ids].inspect
+        params[:assigned][:project_ids].each do |id|
+            project = @contest.projects.find(id)
+            project.category_id = nil
+            project.save
+        end
+        @category = @contest.categories.find(params[:id])
+        @projects = @contest.projects.where(category_id: @category.id)
+        @projects_unassgined =  @contest.projects.where(category_id: nil)
         render 'categories/show'
     end
     

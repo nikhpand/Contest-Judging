@@ -5,14 +5,14 @@
 <div>
     <h3>Assigned Projects</h3>
     <% if @projects != nil %>
-        <% @projects.each do |project| %>
-            <br/>
-            <%= project.name %><br/>
-            <%= link_to 'Edit', edit_contest_project_path(@contest, project)%><br/>
-            <%= link_to 'Destroy', [@contest, project], :confirm => 'Are you sure?', :method => :delete %></td>
-            <br/>
-        <% end %>   
-    <% else %>
+        <%= form_for([@contest, @category] ,url: {action: "unattach"}, method: "post") do |f| %>
+            <% @projects.each do |project| %>
+                <%= check_box_tag "assigned[project_ids][]",project.id  %>
+                <%= project.name %>&nbsp;
+                <br />
+            <% end %>   
+        <%= f.submit 'Unassign' %>
+    <% end %>   
     <% end %>
     <% if @projects_unassgined != nil %>
         <h3>Unassigned Projects</h3>
