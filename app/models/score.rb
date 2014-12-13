@@ -28,15 +28,6 @@ class Score < ActiveRecord::Base
        user.comment = comment
        user.save!
    end
-   
-#   def self.to_csv(options = {})
-#       CSV.generate(options) do |csv|
-#           csv << column_names
-#           all.each do |score|
-#               csv << score.attributes.values_at(*column_names)
-#           end
-#       end
-#   
 
   def Score.to_csv(scores=[], options = {})
       CSV.generate(options) do |csv|
