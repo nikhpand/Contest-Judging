@@ -31,10 +31,8 @@ class CategoriesController < ApplicationController
     
     def show
          @category = @contest.categories.find(params[:id])
-         @projects = @contest.projects.find_by(category_id: @category.id)
+         @projects = @contest.projects.where(category_id: @category.id)
          @projects_unassgined =  @contest.projects.where(category_id: nil)
-         puts @projects.inspect
-         puts @projects_unassgined.inspect
     end
   
     def update
@@ -48,6 +46,18 @@ class CategoriesController < ApplicationController
     end
     
     def attach
+        puts "-------------------------------------".inspect
+        puts params[:unassigned][:project_ids].inspect
+        params[:unassigned][:project_ids].each do |id|
+            project = @contest.projects.find(id)
+            project.category_id = params[:id]
+            project.save
+            puts project.inspect
+        end
+         @category = @contest.categories.find(params[:id])
+         @projects = @contest.projects.where(category_id: @category.id)
+         @projects_unassgined =  @contest.projects.where(category_id: nil)
+        render 'categories/show'
     end
     
     def destroy
