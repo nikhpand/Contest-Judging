@@ -4,7 +4,7 @@ Rails.application.routes.draw do
         resources :attachments
         resources :projects
     end
-    post '/contests/:contest_id/categories/:id/attach_project', to: 'categories#attach_project'
+    post '/contests/:contest_id/categories/:id/attach', to: 'categories#attach', :as => :attach
     root to: 'visitors#index'
     devise_for :users
     resources :users

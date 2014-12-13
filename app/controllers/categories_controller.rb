@@ -33,6 +33,7 @@ class CategoriesController < ApplicationController
          @category = @contest.categories.find(params[:id])
          @projects = @contest.projects.find_by(category_id: @category.id)
          @projects_unassgined =  @contest.projects.where(category_id: nil)
+         puts @projects.inspect
          puts @projects_unassgined.inspect
     end
   
@@ -44,6 +45,9 @@ class CategoriesController < ApplicationController
         else
             render 'categories/edit'
         end
+    end
+    
+    def attach
     end
     
     def destroy

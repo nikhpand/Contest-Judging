@@ -16,13 +16,13 @@
     <% end %>
     <% if @projects_unassgined != nil %>
         <h3>Unassigned Projects</h3>
-       <% form_for url_for(:controller => 'categories', :action => 'attach_project'), :method => 'get' do %>
+       <%= form_for([@contest, @category] ,url: {action: "attach"}, method: "post") do |f| %>
             <% @projects_unassgined.each do |project| %>
                 <%= check_box_tag "unassigned[project_ids][]",project.id  %>
                 <%= project.name %>&nbsp;
                 <br />
             <% end %>   
-        <%= submit_tag 'Assign' %>
+        <%= f.submit 'Assign' %>
     <% end %>
      <% else %>
     <% end %>
