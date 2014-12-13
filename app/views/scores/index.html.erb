@@ -7,7 +7,7 @@
         <th>Judge Name &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
         <th>Question &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
         <th>Score &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
-        <th>Comment</th>
+        <th>Comment &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
     </tr>
     <% @scores.each do |score| %>
     <tr>
@@ -23,6 +23,7 @@
 <br>
 
 <p>
-  Download:
+  Download scores as: 
+  <%= link_to "CSV", scores_path(format: "csv") %> | 
   <%= link_to "Excel", scores_path(format: "xls") %>
 </p>
