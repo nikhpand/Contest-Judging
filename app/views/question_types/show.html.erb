@@ -1,0 +1,19 @@
+<h1>
+    <%= @question_type.question_type %>
+</h1>
+
+<table>
+    <tr>
+        <th>Question Type</th>
+        <th>Contest Id</th>
+    </tr>
+    <tr>
+        <td> <%= @question_type.question_type %></td>
+        <td> <%= @question_type.contest_id %></td>
+        <td> <%= link_to 'Edit', edit_question_path(@question_type)%></td>
+        <td> <%= link_to 'Destroy', @question_type, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>     
+</table>
+
+<br/>
+<%= link_to 'Add Questions Types', question_types_path %>

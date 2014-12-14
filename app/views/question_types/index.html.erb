@@ -1,0 +1,22 @@
+<h1>
+    Listing Question Types
+</h1>
+
+<table>
+    <tr>
+        <th>Question Type &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+        <th>Contest Id &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+    </tr>
+<% @question_types.each do |q| %>
+    <tr>
+        <td> <%= q.question_type %></td>
+        <td> <%= q.contest_id %></td>
+        <td> <%= link_to 'Show',q %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= link_to 'Edit', edit_question_type_path(q)%>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= link_to 'Destroy', q, :confirm => 'Are you sure?', :method => :delete %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+    </tr>     
+<% end %>
+</table>
+<br/>
+<%= link_to 'New Question Type', new_question_type_path %>
+

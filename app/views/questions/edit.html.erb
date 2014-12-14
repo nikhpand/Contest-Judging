@@ -1,0 +1,10 @@
+<h1>
+    Edit Question
+</h1>
+
+<div>
+<%= form_for(@question) do |f| %>
+    <%= render 'fields', :f => f %>
+    <%= f.submit "Update"%>
+<% end %>
+</div>

@@ -28,6 +28,7 @@ class Score < ActiveRecord::Base
        user.comment = comment
        user.save!
    end
+<<<<<<< HEAD
    
 #   def self.to_csv(options = {})
 #       CSV.generate(options) do |csv|
@@ -38,7 +39,7 @@ class Score < ActiveRecord::Base
 #       end
 #   end
 
-def Score.to_csv(scores=[], options = {})
+  def Score.to_csv(scores=[], options = {})
       CSV.generate(options) do |csv|
           csv << ['Round Number','Project Name','Username','Question','Score','Comments']
           scores.each do |score|

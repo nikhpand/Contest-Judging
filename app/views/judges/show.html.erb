@@ -1,0 +1,30 @@
+<h1>Judges and Projects mapping</h1>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Judge Name &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+        <th>Judge Email &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+        <th>Number of projects assigned</th>
+    </tr>
+    <% @jp.each do |jp| %>
+    <tr>
+        <td> <%= jp.user_name %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= jp.email %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= jp.total_proj %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+    </tr>     
+    <% end %>
+</table>
+<br>
+<table class="table table-striped"> 
+    <tr>
+        <th>Project Name &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
+        <th>Number of judges assigned</th>
+    </tr>
+    <% @pj.each do |pj| %>
+    <tr>
+        <td> <%= pj.proj_name %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+        <td> <%= pj.total_judge %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+    </tr>     
+    <% end %>
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207033236) do
+ActiveRecord::Schema.define(version: 20141208063637) do
 
   create_table "attachments", force: true do |t|
     t.string   "filename"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20141207033236) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contest_id"
   end
 
   create_table "projects_users", id: false, force: true do |t|

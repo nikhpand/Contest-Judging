@@ -2,40 +2,105 @@
     <%= @contest.name %>
 </h1>
 
-<table>
-    <tr>
-        <th>Location &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
-        <th>Date</th>
-    </tr>
-    <tr>
-        <td> <%= @contest.location %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-        <td> <%= @contest.date %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-        <td> <%= link_to 'Edit', edit_contest_path(@contest)%>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-        <td> <%= link_to 'Destroy', @contest, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>     
-</table>
-
-<br/>
-<br/>
-<h3>Categories</h3>
-<div>
-    <% @contest.categories.each do |category| %>
-        <br/>
-        <%= category.name %><br/>
-        <%= link_to 'Add projects', new_project_path%><br/>
-        <%= link_to 'Edit', edit_contest_category_path(@contest, category)%><br/>
-        <%= link_to 'Destroy', [@contest, category], :confirm => 'Are you sure?', :method => :delete %></td>
-        <br/>
-    <% end %>   
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          About
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <table class="table table-striped">
+            <tr>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Actions</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td> <%= @contest.location %></td>
+                <td> <%= @contest.date %></td>
+                <td> <%= link_to 'Edit', edit_contest_path(@contest)%>
+                <%= link_to 'Destroy', @contest, :confirm => 'Are you sure?', :method => :delete %></td>
+            </tr>     
+            </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Categories
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <h3>Categories</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+            <% @contest.categories.each do |category| %>
+            <tr>
+                <th>
+                    <%= category.name %>&nbsp;
+                </th>
+                <th>
+                    <%= link_to 'Show', contest_category_path(@contest, category)%>
+                    <%= link_to 'Edit', edit_contest_category_path(@contest, category)%>
+                    <%= link_to 'Destroy', [@contest, category], :confirm => 'Are you sure?', :method => :delete %></td>
+                </th>
+            </tr>
+            <% end %>   
+        </table>
+        <%= link_to 'New Category', new_contest_category_path(@contest,@category) %>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Projects
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <h3>Projects</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+            <% @contest.projects.each do |project| %>
+            <tr>
+                <th>
+                    <%= project.name %>
+                </th>
+                <th>
+                    <%= link_to 'Show', contest_project_path(@contest, project)%>
+                    <%= link_to 'Edit', edit_contest_project_path(@contest, project)%>
+                    <%= link_to 'Destroy', [@contest, project], :confirm => 'Are you sure?', :method => :delete %>
+                </th>
+            <% end %>   
+        </table>
+        <%= link_to 'Add project', new_contest_project_path(@contest) %><br/>
+      </div>
+    </div>
+  </div>
 </div>
-<br/>
-<br/>
-<%= link_to 'Upload Contest File', new_contest_attachment_path(@contest) %>
-<br/>
-<%= link_to 'Add Judges to projects', controller: "users" %>
-<br/>
-<%= link_to 'Scores', controller: "scores" %>
-<br/>
-<%= link_to 'New Category', new_contest_category_path(@contest,@category) %>
-<br/>
-<%= link_to 'Back to Contests', contests_path %>
+<ol class="breadcrumb">
+  <li role="presentation"><%= link_to 'Upload Projects File', new_contest_attachment_path(@contest) %></li>
+  <li role="presentation"><%= link_to 'Add Judges to projects', controller: "users" %></li>
+  <li role="presentation"><%= link_to 'Download Scores', controller: "scores" %></li>
+  <li role="presentation"><%= link_to 'Add Question Types', question_types_path %></li>
+  <li role="presentation"><%= link_to 'Add Questions', questions_path %></li>
+  <li role="presentation"><%= link_to 'Judge Project Mapping', action:'show' , controller:'judges' %></li>
+</ul>

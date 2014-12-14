@@ -2,20 +2,23 @@
     Listing Contests
 </h1>
 
-<table>
-    <tr>
-        <th>Name &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
-        <th>Location  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</th>
-        <th>Date  &nbsp;&nbsp;&nbsp;</th>
+<table class="table table-striped">
+    <tr class="success">
+        <th>Name </th>
+        <th>Location </th>
+        <th>Date  </th>
+        <th>Actions</th>
     </tr>
 <% @contests.each do |contest| %>
     <tr>
         <td> <%= contest.name %></td>
         <td> <%= contest.location %></td>
-        <td> <%= contest.date %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-        <td> <%= link_to 'Show',contest %>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-        <td> <%= link_to 'Edit', edit_contest_path(contest)%>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
-        <td> <%= link_to 'Destroy', contest, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td> <%= contest.date %></td>
+        <td> 
+            <%= link_to 'Show',contest %>
+            <%= link_to 'Edit', edit_contest_path(contest)%>
+            <%= link_to 'Destroy', contest, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
     </tr>     
 <% end %>
 </table>

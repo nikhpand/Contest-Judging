@@ -1,14 +1,29 @@
 <h1>
-    Listing Contests
+    <%= @category.name %>
 </h1>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Date</th>
-    </tr>
-    <tr>
-
-        <td> <%= link_to 'Projects',contest %></td>
-    </tr>     
+<div>
+    <h3>Assigned Projects</h3>
+    <% if @projects != nil %>
+        <%= form_for([@contest, @category] ,url: {action: "unattach"}, method: "post") do |f| %>
+            <% @projects.each do |project| %>
+                <%= check_box_tag "assigned[project_ids][]",project.id  %>
+                <%= project.name %>&nbsp;
+                <br />
+            <% end %>   
+        <%= f.submit 'Unassign' %>
+    <% end %>   
+    <% end %>
+    <% if @projects_unassgined != nil %>
+        <h3>Unassigned Projects</h3>
+       <%= form_for([@contest, @category] ,url: {action: "attach"}, method: "post") do |f| %>
+            <% @projects_unassgined.each do |project| %>
+                <%= check_box_tag "unassigned[project_ids][]",project.id  %>
+                <%= project.name %>&nbsp;
+                <br />
+            <% end %>   
+        <%= f.submit 'Assign' %>
+    <% end %>
+     <% else %>
+    <% end %>
+</div>
