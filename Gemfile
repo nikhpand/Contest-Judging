@@ -25,6 +25,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'cucumber-rails-training-wheels'
 end
 group :production do
   gem 'pg'
@@ -35,4 +36,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'cucumber-rails', :require=>false
 end
